@@ -3,10 +3,14 @@
 configurations {
 };
 
+#define { 
+      package-id = "grpc.experimentaldependencies.zlib";
+}
+
 nuget {
 	// the nuspec file metadata. Gets created/updated on build
 	nuspec {
-		id = zlib;
+		id = ${package-id};
 		version : ${package-version};
 		title: ZLib compression library;
 		authors: {Jean-loup Gailly, Mark Adler, Garrett Serack, Tim Rogers};
@@ -27,6 +31,16 @@ nuget {
 	// the files that go into the content folders
 	// (inserted into the nuspec file)
 	files {
+	    // .targets file that are applied when redist package is installed from a managed project.
+		managed_build: {
+		  #output {
+              package = redist;
+          };
+		  #destination = \build\net45;  // TODO(jtattermusch): use for broader variety of target frameworks.
+		  "managed_targets\${package-id}.redist.props";
+		  "managed_targets\${package-id}.redist.targets";
+		};
+	
 		include: { ..\..\zlib.h, ..\..\zconf.h };
 
 		docs: {  ..\..\doc\**\* };
@@ -64,14 +78,14 @@ nuget {
             "..\minizip\unzip.c",
             "..\minizip\zip.c",
         };
-		("v100,v110,v120", "Win32,x64", "release,debug", "Dynamic", "cdecl,stdcall", "MultiByte") => {
+		("v100,v120", "Win32,x64", "Release,Debug", "Dynamic", "cdecl,stdcall", "MultiByte") => {
 			[${0},${1},${2},${3},${4}] {
 				lib:     { .\output\${0}\${1}\${2}\${3}\${4}\${5}\*.lib };
 				bin:     { .\output\${0}\${1}\${2}\${3}\${4}\${5}\*.dll };
 				symbols: { .\output\${0}\${1}\${2}\${3}\${4}\${5}\*.pdb };
 			};
 		};
-		("v100,v110,v120", "Win32,x64", "release,debug", "Static,ltcg", "cdecl,stdcall", "MultiByte") => {
+		("v100,v120", "Win32,x64", "Release,Debug", "Static,ltcg", "cdecl,stdcall", "MultiByte") => {
 			[${0},${1},${2},${3},${4}] {
 				lib:     { .\output\${0}\${1}\${2}\${3}\${4}\${5}\*.lib };
 			};
