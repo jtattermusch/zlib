@@ -1,16 +1,16 @@
 Zlib Native Nuget package
 -------------------------
 
-Uses CoApp[http://coapp.org/] project to build the zlib package.
+Uses [CoApp](http://coapp.org/) project to build the zlib package.
 
 Prerequisites
 -------------
 Multiple versions of VS installed to be able to build all the targets:
-Visual Studio 2013
-Visual Studio 2010 (you might need SP1 to prevent LNK1123 error)
+* Visual Studio 2013
+* Visual Studio 2010 (you might need SP1 to prevent LNK1123 error)
 
-CoApp toolkit:
-http://downloads.coapp.org/files/CoApp.Tools.Powershell.msi
+CoApp toolkit: http://downloads.coapp.org/files/CoApp.Tools.Powershell.msi
+
 More details on installation: http://coapp.org/tutorials/installation.html
 
 Building
@@ -23,7 +23,7 @@ buildall.bat
 
 Then, create NuGet package using powershell (you'll need the CoApp toolkit installed):
 ```
-openssl\COPKG> Write-NuGetPackage grpc.dependencies.zlib.autopkg
+[THIS_DIRECTORY]> Write-NuGetPackage grpc.dependencies.zlib.autopkg
 ```
 
 This will create three NuGet packages:
