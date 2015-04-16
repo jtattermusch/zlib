@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <Target Name="grpc_experimentaldependencies_zlib_redist_AfterBuild" Label="Copy native dependencies" Condition=" '$(CopyNativeDependencies)' == 'true' " AfterTargets="AfterBuild">
-    <Copy SourceFiles="$(MSBuildThisFileDirectory)../../build/native/bin/$(NativeDependenciesToolset)\$(NativeDependenciesPlatform)\$(NativeDependenciesConfiguration)\dynamic\$(ZlibCallingConvention)\zlib.dll" DestinationFolder="$(TargetDir)" SkipUnchangedFiles="true" />
+    <Copy SourceFiles="$(MSBuildThisFileDirectory)..\..\build\native\bin\$(NativeDependenciesToolset)\$(NativeDependenciesPlatform)\$(NativeDependenciesConfiguration)\dynamic\$(ZlibCallingConvention)\zlib.dll" DestinationFolder="$(TargetDir)" SkipUnchangedFiles="true" />
   </Target>
 </Project>
