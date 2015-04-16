@@ -12,9 +12,9 @@ nuget {
 	nuspec {
 		id = ${package-id};
 		version : ${package-version};
-		title: ZLib compression library;
+		title: gRPC Native Dependency: ZLib compression library;
 		authors: {Jean-loup Gailly, Mark Adler, Garrett Serack, Tim Rogers};
-		owners: {CoApp Project, Garrett Serack};
+		owners: {Jan Tattermusch};
 		licenseUrl: "http://zlib.net/zlib-license.html";
 		projectUrl: "http://github.com/coapp-packages/zlib";
 		iconUrl: "http://zlib.net/images/zlib3d-b1.png";
