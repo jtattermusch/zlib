@@ -36,7 +36,7 @@ nuget {
 		  #output {
               package = redist;
           };
-		  #destination = \build\portable-net45+win8+wp8+wpa81;
+		  #destination = "\build\portable-net45";
 		  "managed_targets\${package-id}.redist.props";
 		  "managed_targets\${package-id}.redist.targets";
 		};
